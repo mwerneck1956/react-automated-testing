@@ -1,11 +1,15 @@
 import { useState } from "react";
-import SummaryForm from "./pages/summary/SummaryForm";
+import { Container } from "react-bootstrap";
+import { OrderDetailsProvider } from "./contexts/OrderDetails";
+import OrderEntry from "./pages/summary/entry/OrderEntry";
 
 function App() {
   return (
-    <>
-      <SummaryForm />
-    </>
+    <Container>
+      <OrderDetailsProvider>
+        <OrderEntry />
+      </OrderDetailsProvider>
+    </Container>
   );
 }
 
