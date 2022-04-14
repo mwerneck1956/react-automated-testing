@@ -6,6 +6,7 @@ import AlertBanner from "../../../common/AlertBanner";
 import { Row } from "react-bootstrap";
 import { PRICE_PER_ITEM } from "../../../constants";
 import { useOrderDetails } from "../../../contexts/OrderDetails";
+import {formatCurrency} from '../../../utils';
 
 function Options(props) {
   const { optionType } = props;
@@ -13,6 +14,7 @@ function Options(props) {
   const [error, setError] = useState(false);
 
   const [orderDetails, updateItemCount] = useOrderDetails();
+
 
   useEffect(() => {
     async function fetchOptions() {
@@ -44,7 +46,7 @@ function Options(props) {
   return (
     <>
       <h2> {title} </h2>
-      <p> {PRICE_PER_ITEM[optionType]} </p>
+      <p> {formatCurrency(PRICE_PER_ITEM[optionType])} </p>
       <p>
         {title} total: {orderDetails.totals[optionType]}
       </p>

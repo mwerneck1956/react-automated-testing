@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Form, Row } from "react-bootstrap";
-import platform from "platform";
 
 export default function ScoopOptions(props) {
   const { name, imagePath, updateItemCount } = props;

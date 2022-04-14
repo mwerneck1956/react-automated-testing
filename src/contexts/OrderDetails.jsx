@@ -1,13 +1,6 @@
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import { PRICE_PER_ITEM } from "../constants";
-
-function formatCurrency(amount) {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-  }).format(amount);
-}
+import {formatCurrency} from '../utils'
 
 const OrderDetails = createContext();
 
@@ -54,7 +47,7 @@ function OrderDetailsProvider(props, children) {
     setTotals({
       scoops: formatCurrency(scoopSubTotal),
       toppings: formatCurrency(toppingsSubTotal),
-      grandTota: formatCurrency(grandTotal),
+      grandTotal: formatCurrency(grandTotal),
     });
   }, [optionsCount]);
 
